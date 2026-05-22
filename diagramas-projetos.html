@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Diagramas - Sistema Hospitalar Inteligente</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f5f7f8;
+      --surface: #ffffff;
+      --ink: #172033;
+      --muted: #5d6678;
+      --line: #c7ced8;
+      --red: #b42318;
+      --teal: #0f766e;
+      --blue: #22577a;
+      --amber: #b86e00;
+      --rose: #be123c;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.45;
+    }
+
+    main {
+      width: min(1280px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 44px;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 18px;
+      margin-bottom: 24px;
+    }
+
+    .eyebrow {
+      margin: 0 0 6px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(26px, 4vw, 42px);
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 900px;
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .project {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .project-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .project h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .tag {
+      align-self: start;
+      border-radius: 6px;
+      padding: 5px 8px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .tag.bad {
+      background: #fff2f0;
+      color: var(--red);
+    }
+
+    .tag.good {
+      background: #ecfdf5;
+      color: var(--teal);
+    }
+
+    .diagram {
+      overflow-x: auto;
+      padding: 12px;
+    }
+
+    svg {
+      display: block;
+      min-width: 560px;
+      width: 100%;
+      height: auto;
+    }
+
+    .box {
+      fill: #fff;
+      stroke-width: 2;
+      rx: 8;
+    }
+
+    .legacy {
+      fill: #fff7f5;
+      stroke: var(--red);
+    }
+
+    .engineered {
+      fill: #eefaf7;
+      stroke: var(--teal);
+    }
+
+    .neutral {
+      fill: #f8fafc;
+      stroke: #64748b;
+    }
+
+    .db {
+      fill: #f8f4e8;
+      stroke: var(--amber);
+    }
+
+    .service {
+      fill: #fdf2f8;
+      stroke: var(--rose);
+    }
+
+    .label {
+      fill: var(--ink);
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .small {
+      fill: var(--muted);
+      font-size: 12px;
+    }
+
+    .arrow {
+      stroke: #667085;
+      stroke-width: 2.4;
+      fill: none;
+    }
+
+    .notes {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .note {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      border-radius: 8px;
+      padding: 14px;
+    }
+
+    .note h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+
+    .note p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 980px) {
+      .grid,
+      .notes {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">Seminario de Engenharia de Software</p>
+      <h1>Diagramas dos dois projetos</h1>
+      <p class="lead">Comparacao visual entre a versao legacy, feita sem aplicar os conceitos, e a versao engineered, organizada com Clean Code, SOLID, DDD, Clean Architecture e microsservico de faturamento.</p>
+    </header>
+
+    <section class="grid" aria-label="Comparativo visual dos projetos">
+      <article class="project">
+        <div class="project-head">
+          <div>
+            <h2>hospital-legacy</h2>
+            <p class="lead" style="font-size:14px;margin-top:6px">Funciona, mas concentra regras e responsabilidades.</p>
+          </div>
+          <span class="tag bad">sem conceitos</span>
+        </div>
+        <div class="diagram">
+          <svg viewBox="0 0 620 530" role="img" aria-label="Diagrama resumido do hospital legacy">
+            <defs>
+              <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,6 L9,3 z" fill="#667085"></path>
+              </marker>
+            </defs>
+            <rect x="40" y="40" width="220" height="95" class="box neutral"></rect>
+            <text x="62" y="78" class="label">Next.js page.tsx</text>
+            <text x="62" y="106" class="small">UI + fetch + estado + validacao</text>
+
+            <rect x="360" y="40" width="220" height="95" class="box legacy"></rect>
+            <text x="382" y="78" class="label">HospitalController</text>
+            <text x="382" y="106" class="small">um controller para todos os fluxos</text>
+
+            <rect x="200" y="220" width="240" height="135" class="box legacy"></rect>
+            <text x="224" y="262" class="label">HospitalService</text>
+            <text x="224" y="292" class="small">pacientes + internacao</text>
+            <text x="224" y="316" class="small">prescricao + exames + faturamento</text>
+            <text x="224" y="340" class="small">alertas + regras + EF Core</text>
+
+            <rect x="200" y="430" width="240" height="70" class="box db"></rect>
+            <text x="224" y="472" class="label">SQLite unico</text>
+
+            <path d="M260 88 H360" class="arrow" marker-end="url(#arrow)"></path>
+            <path d="M470 135 C470 190 430 220 380 238" class="arrow" marker-end="url(#arrow)"></path>
+            <path d="M320 355 V430" class="arrow" marker-end="url(#arrow)"></path>
+            <path d="M200 288 C120 282 85 240 72 142" class="arrow" marker-end="url(#arrow)"></path>
+          </svg>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-head">
+          <div>
+            <h2>hospital-engineered</h2>
+            <p class="lead" style="font-size:14px;margin-top:6px">Mesmo fluxo com camadas, dominio e servico separado.</p>
+          </div>
+          <span class="tag good">com conceitos</span>
+        </div>
+        <div class="diagram">
+          <svg viewBox="0 0 620 530" role="img" aria-label="Diagrama resumido do hospital engineered">
+            <defs>
+              <marker id="arrow2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,6 L9,3 z" fill="#667085"></path>
+              </marker>
+            </defs>
+            <path class="arrow" marker-end="url(#arrow2)" d="M255 82 H355"></path>
+            <path class="arrow" marker-end="url(#arrow2)" d="M465 135 V190"></path>
+            <path class="arrow" marker-end="url(#arrow2)" d="M465 285 V340"></path>
+            <path class="arrow" marker-end="url(#arrow2)" d="M355 270 H258"></path>
+            <path class="arrow" marker-end="url(#arrow2)" d="M465 285 C560 300 570 355 548 410"></path>
+
+            <rect x="35" y="40" width="220" height="85" class="box neutral"></rect>
+            <text x="58" y="76" class="label">Next.js Features</text>
+            <text x="58" y="102" class="small">dashboard + shared/api</text>
+
+            <rect x="355" y="40" width="220" height="95" class="box neutral"></rect>
+            <text x="378" y="78" class="label">Hospital.Api</text>
+            <text x="378" y="106" class="small">controllers finos</text>
+
+            <rect x="355" y="190" width="220" height="95" class="box engineered"></rect>
+            <text x="378" y="228" class="label">Application</text>
+            <text x="378" y="256" class="small">use cases + interfaces</text>
+
+            <rect x="355" y="340" width="220" height="95" class="box service"></rect>
+            <text x="378" y="378" class="label">Domain</text>
+            <text x="378" y="406" class="small">Admission aggregate</text>
+
+            <rect x="35" y="230" width="222" height="95" class="box service"></rect>
+            <text x="58" y="268" class="label">Infrastructure</text>
+            <text x="58" y="296" class="small">EF Core + gateway HTTP</text>
+
+            <rect x="35" y="410" width="222" height="75" class="box db"></rect>
+            <text x="58" y="455" class="label">SQLite Clinico</text>
+
+            <rect x="410" y="430" width="165" height="65" class="box engineered"></rect>
+            <text x="430" y="468" class="label">BillingService</text>
+          </svg>
+        </div>
+      </article>
+    </section>
+
+    <section class="notes" aria-label="Resumo comparativo">
+      <article class="note">
+        <h3>Mensagem do legacy</h3>
+        <p>O projeto entrega o fluxo hospitalar, mas o custo de mudanca e alto porque tudo passa por um controller e um service grande.</p>
+      </article>
+      <article class="note">
+        <h3>Mensagem do engineered</h3>
+        <p>A mesma funcionalidade fica organizada por camadas, casos de uso, dominio e fronteira de faturamento.</p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

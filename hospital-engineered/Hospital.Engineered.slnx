@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/backend/" />
+  <Folder Name="/backend/src/">
+    <Project Path="backend/src/Hospital.Api/Hospital.Api.csproj" />
+    <Project Path="backend/src/Hospital.Application/Hospital.Application.csproj" />
+    <Project Path="backend/src/Hospital.BillingService/Hospital.BillingService.csproj" />
+    <Project Path="backend/src/Hospital.Domain/Hospital.Domain.csproj" />
+    <Project Path="backend/src/Hospital.Infrastructure/Hospital.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/backend/tests/">
+    <Project Path="backend/tests/Hospital.Api.Tests/Hospital.Api.Tests.csproj" />
+    <Project Path="backend/tests/Hospital.Application.Tests/Hospital.Application.Tests.csproj" />
+    <Project Path="backend/tests/Hospital.Domain.Tests/Hospital.Domain.Tests.csproj" />
+  </Folder>
+</Solution>

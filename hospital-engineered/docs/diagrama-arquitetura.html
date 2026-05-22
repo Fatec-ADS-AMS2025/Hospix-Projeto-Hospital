@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>UML Component Diagram - hospital-engineered</title>
+  <style>
+    :root {
+      --page: #f3f3f3;
+      --canvas: #ffffff;
+      --uml: #fff8cf;
+      --ink: #111111;
+      --muted: #333333;
+      --line: #111111;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.35;
+    }
+
+    main {
+      width: min(1240px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 36px;
+    }
+
+    header {
+      border-bottom: 1px solid #bdbdbd;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+    }
+
+    .eyebrow {
+      margin: 0 0 6px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(26px, 4vw, 38px);
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 900px;
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .diagram-wrap {
+      overflow-x: auto;
+      border: 1px solid #9f9f9f;
+      background: var(--canvas);
+      padding: 18px;
+    }
+
+    svg {
+      display: block;
+      min-width: 1120px;
+      width: 100%;
+      height: auto;
+      background: #fff;
+    }
+
+    .component,
+    .database,
+    .note {
+      fill: var(--uml);
+      stroke: var(--line);
+      stroke-width: 1.5;
+      rx: 0;
+    }
+
+    .comp-tab {
+      fill: #fff;
+      stroke: var(--line);
+      stroke-width: 1.2;
+    }
+
+    .title {
+      fill: var(--ink);
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .stereo {
+      fill: var(--ink);
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    .body {
+      fill: var(--muted);
+      font-size: 13px;
+    }
+
+    .connector {
+      stroke: var(--line);
+      stroke-width: 1.6;
+      fill: none;
+      marker-end: url(#arrow);
+    }
+
+    .dependency {
+      stroke-dasharray: 7 5;
+    }
+
+    .label-bg {
+      fill: #fff;
+      stroke: #bdbdbd;
+      stroke-width: 1;
+    }
+
+    .edge-label {
+      fill: var(--ink);
+      font-size: 12px;
+    }
+
+    .caption {
+      margin: 12px 0 0;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">hospital-engineered</p>
+      <h1>UML Component Diagram</h1>
+      <p class="lead">Representacao em estilo Astah/UML da arquitetura com camadas, fronteiras e BillingService separado.</p>
+    </header>
+
+    <section class="diagram-wrap" aria-label="UML component diagram do hospital engineered">
+      <svg viewBox="0 0 1180 610" role="img" aria-labelledby="title desc">
+        <title id="title">UML component diagram hospital-engineered</title>
+        <desc id="desc">Componentes do frontend, API, Application, Domain, Infrastructure, bancos e BillingService.</desc>
+        <defs>
+          <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L0,6 L9,3 z" fill="#111"></path>
+          </marker>
+        </defs>
+
+        <g>
+          <rect x="35" y="50" width="210" height="115" class="component"></rect>
+          <rect x="52" y="68" width="18" height="12" class="comp-tab"></rect>
+          <rect x="52" y="86" width="18" height="12" class="comp-tab"></rect>
+          <text x="140" y="78" text-anchor="middle" class="stereo">&lt;&lt;component&gt;&gt;</text>
+          <text x="140" y="106" text-anchor="middle" class="title">Next.js Frontend</text>
+          <text x="62" y="134" class="body">features/dashboard</text>
+          <text x="62" y="154" class="body">shared/api, components</text>
+        </g>
+
+        <g>
+          <rect x="315" y="50" width="210" height="115" class="component"></rect>
+          <rect x="332" y="68" width="18" height="12" class="comp-tab"></rect>
+          <rect x="332" y="86" width="18" height="12" class="comp-tab"></rect>
+          <text x="420" y="78" text-anchor="middle" class="stereo">&lt;&lt;component&gt;&gt;</text>
+          <text x="420" y="106" text-anchor="middle" class="title">Hospital.Api</text>
+          <text x="342" y="134" class="body">Controllers finos</text>
+          <text x="342" y="154" class="body">Swagger / CORS</text>
+        </g>
+
+        <g>
+          <rect x="595" y="50" width="230" height="115" class="component"></rect>
+          <rect x="612" y="68" width="18" height="12" class="comp-tab"></rect>
+          <rect x="612" y="86" width="18" height="12" class="comp-tab"></rect>
+          <text x="710" y="78" text-anchor="middle" class="stereo">&lt;&lt;component&gt;&gt;</text>
+          <text x="710" y="106" text-anchor="middle" class="title">Hospital.Application</text>
+          <text x="622" y="134" class="body">Use cases, DTOs</text>
+          <text x="622" y="154" class="body">Interfaces de portas</text>
+        </g>
+
+        <g>
+          <rect x="595" y="255" width="230" height="130" class="component"></rect>
+          <rect x="612" y="273" width="18" height="12" class="comp-tab"></rect>
+          <rect x="612" y="291" width="18" height="12" class="comp-tab"></rect>
+          <text x="710" y="283" text-anchor="middle" class="stereo">&lt;&lt;domain&gt;&gt;</text>
+          <text x="710" y="313" text-anchor="middle" class="title">Hospital.Domain</text>
+          <text x="622" y="342" class="body">Admission aggregate</text>
+          <text x="622" y="362" class="body">Entities / Value Objects</text>
+        </g>
+
+        <g>
+          <rect x="315" y="255" width="210" height="130" class="component"></rect>
+          <rect x="332" y="273" width="18" height="12" class="comp-tab"></rect>
+          <rect x="332" y="291" width="18" height="12" class="comp-tab"></rect>
+          <text x="420" y="283" text-anchor="middle" class="stereo">&lt;&lt;adapter&gt;&gt;</text>
+          <text x="420" y="313" text-anchor="middle" class="title">Infrastructure</text>
+          <text x="342" y="342" class="body">EF Core repositories</text>
+          <text x="342" y="362" class="body">HttpBillingGateway</text>
+        </g>
+
+        <g>
+          <rect x="315" y="465" width="210" height="80" class="database"></rect>
+          <text x="420" y="492" text-anchor="middle" class="stereo">&lt;&lt;database&gt;&gt;</text>
+          <text x="420" y="522" text-anchor="middle" class="title">SQLite Clinico</text>
+        </g>
+
+        <g>
+          <rect x="920" y="145" width="220" height="115" class="component"></rect>
+          <rect x="937" y="163" width="18" height="12" class="comp-tab"></rect>
+          <rect x="937" y="181" width="18" height="12" class="comp-tab"></rect>
+          <text x="1030" y="173" text-anchor="middle" class="stereo">&lt;&lt;service&gt;&gt;</text>
+          <text x="1030" y="203" text-anchor="middle" class="title">BillingService</text>
+          <text x="947" y="232" class="body">Gera fatura por alta</text>
+        </g>
+
+        <g>
+          <rect x="920" y="365" width="220" height="80" class="database"></rect>
+          <text x="1030" y="392" text-anchor="middle" class="stereo">&lt;&lt;database&gt;&gt;</text>
+          <text x="1030" y="422" text-anchor="middle" class="title">SQLite Billing</text>
+        </g>
+
+        <path d="M245 108 H315" class="connector"></path>
+        <path d="M525 108 H595" class="connector"></path>
+        <path d="M710 165 V255" class="connector"></path>
+        <path d="M595 320 H525" class="connector"></path>
+        <path d="M420 385 V465" class="connector"></path>
+        <path d="M825 108 C875 112 910 145 930 170" class="connector dependency"></path>
+        <path d="M1030 260 V365" class="connector"></path>
+
+        <g>
+          <rect x="260" y="82" width="42" height="22" class="label-bg"></rect>
+          <text x="281" y="97" text-anchor="middle" class="edge-label">HTTP</text>
+        </g>
+        <g>
+          <rect x="535" y="82" width="52" height="22" class="label-bg"></rect>
+          <text x="561" y="97" text-anchor="middle" class="edge-label">uses</text>
+        </g>
+        <g>
+          <rect x="730" y="205" width="56" height="22" class="label-bg"></rect>
+          <text x="758" y="220" text-anchor="middle" class="edge-label">rules</text>
+        </g>
+        <g>
+          <rect x="535" y="294" width="62" height="22" class="label-bg"></rect>
+          <text x="566" y="309" text-anchor="middle" class="edge-label">ports</text>
+        </g>
+        <g>
+          <rect x="435" y="420" width="58" height="22" class="label-bg"></rect>
+          <text x="464" y="435" text-anchor="middle" class="edge-label">persist</text>
+        </g>
+        <g>
+          <rect x="850" y="78" width="90" height="22" class="label-bg"></rect>
+          <text x="895" y="93" text-anchor="middle" class="edge-label">discharge event</text>
+        </g>
+      </svg>
+      <p class="caption">Estilo UML: componentes, adaptadores, servicos e bancos aparecem como elementos separados com dependencias explicitas.</p>
+    </section>
+  </main>
+</body>
+</html>

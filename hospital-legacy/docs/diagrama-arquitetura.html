@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>UML Component Diagram - hospital-legacy</title>
+  <style>
+    :root {
+      --page: #f3f3f3;
+      --canvas: #ffffff;
+      --uml: #fff8cf;
+      --ink: #111111;
+      --muted: #333333;
+      --line: #111111;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.35;
+    }
+
+    main {
+      width: min(1160px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 36px;
+    }
+
+    header {
+      border-bottom: 1px solid #bdbdbd;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+    }
+
+    .eyebrow {
+      margin: 0 0 6px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(26px, 4vw, 38px);
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 880px;
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .diagram-wrap {
+      overflow-x: auto;
+      border: 1px solid #9f9f9f;
+      background: var(--canvas);
+      padding: 18px;
+    }
+
+    svg {
+      display: block;
+      min-width: 1040px;
+      width: 100%;
+      height: auto;
+      background: #fff;
+    }
+
+    .component,
+    .database,
+    .note {
+      fill: var(--uml);
+      stroke: var(--line);
+      stroke-width: 1.5;
+      rx: 0;
+    }
+
+    .comp-tab {
+      fill: #fff;
+      stroke: var(--line);
+      stroke-width: 1.2;
+    }
+
+    .title {
+      fill: var(--ink);
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .stereo {
+      fill: var(--ink);
+      font-size: 12px;
+    }
+
+    .body {
+      fill: var(--muted);
+      font-size: 13px;
+    }
+
+    .connector {
+      stroke: var(--line);
+      stroke-width: 1.6;
+      fill: none;
+      marker-end: url(#arrow);
+    }
+
+    .label-bg {
+      fill: #fff;
+      stroke: #bdbdbd;
+      stroke-width: 1;
+    }
+
+    .edge-label {
+      fill: var(--ink);
+      font-size: 12px;
+    }
+
+    .caption {
+      margin: 12px 0 0;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">hospital-legacy</p>
+      <h1>UML Component Diagram</h1>
+      <p class="lead">Representacao em estilo Astah/UML da versao sem conceitos: fluxo funcional, mas concentrado em controller, service e banco unico.</p>
+    </header>
+
+    <section class="diagram-wrap" aria-label="UML component diagram do hospital legacy">
+      <svg viewBox="0 0 1080 560" role="img" aria-labelledby="title desc">
+        <title id="title">UML component diagram hospital-legacy</title>
+        <desc id="desc">Frontend chama HospitalController, que chama HospitalService, que acessa DbContext e banco unico.</desc>
+        <defs>
+          <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L0,6 L9,3 z" fill="#111"></path>
+          </marker>
+        </defs>
+
+        <g>
+          <rect x="55" y="70" width="230" height="115" class="component"></rect>
+          <rect x="72" y="88" width="18" height="12" class="comp-tab"></rect>
+          <rect x="72" y="106" width="18" height="12" class="comp-tab"></rect>
+          <text x="170" y="98" text-anchor="middle" class="stereo">&lt;&lt;component&gt;&gt;</text>
+          <text x="170" y="126" text-anchor="middle" class="title">Next.js Frontend</text>
+          <text x="92" y="154" class="body">page.tsx monolitico</text>
+          <text x="92" y="174" class="body">UI + estado + fetch</text>
+        </g>
+
+        <g>
+          <rect x="425" y="70" width="230" height="115" class="component"></rect>
+          <rect x="442" y="88" width="18" height="12" class="comp-tab"></rect>
+          <rect x="442" y="106" width="18" height="12" class="comp-tab"></rect>
+          <text x="540" y="98" text-anchor="middle" class="stereo">&lt;&lt;controller&gt;&gt;</text>
+          <text x="540" y="126" text-anchor="middle" class="title">HospitalController</text>
+          <text x="462" y="154" class="body">todos endpoints /api</text>
+          <text x="462" y="174" class="body">tratamento repetido</text>
+        </g>
+
+        <g>
+          <rect x="425" y="260" width="230" height="135" class="component"></rect>
+          <rect x="442" y="278" width="18" height="12" class="comp-tab"></rect>
+          <rect x="442" y="296" width="18" height="12" class="comp-tab"></rect>
+          <text x="540" y="288" text-anchor="middle" class="stereo">&lt;&lt;service&gt;&gt;</text>
+          <text x="540" y="318" text-anchor="middle" class="title">HospitalService</text>
+          <text x="462" y="346" class="body">paciente, internacao</text>
+          <text x="462" y="366" class="body">prescricao, exame</text>
+          <text x="462" y="386" class="body">alerta e faturamento</text>
+        </g>
+
+        <g>
+          <rect x="775" y="260" width="230" height="135" class="component"></rect>
+          <rect x="792" y="278" width="18" height="12" class="comp-tab"></rect>
+          <rect x="792" y="296" width="18" height="12" class="comp-tab"></rect>
+          <text x="890" y="288" text-anchor="middle" class="stereo">&lt;&lt;model&gt;&gt;</text>
+          <text x="890" y="318" text-anchor="middle" class="title">Records / DTOs</text>
+          <text x="812" y="346" class="body">Status como string</text>
+          <text x="812" y="366" class="body">Entidades anemicas</text>
+        </g>
+
+        <g>
+          <rect x="425" y="455" width="230" height="80" class="database"></rect>
+          <text x="540" y="482" text-anchor="middle" class="stereo">&lt;&lt;database&gt;&gt;</text>
+          <text x="540" y="512" text-anchor="middle" class="title">SQLite unico</text>
+        </g>
+
+        <g>
+          <path d="M85 290 H260 V365 H85 Z" class="note"></path>
+          <path d="M230 290 V320 H260" fill="none" stroke="#111" stroke-width="1.2"></path>
+          <text x="106" y="323" class="body">Funciona, mas mistura</text>
+          <text x="106" y="343" class="body">camadas e regras.</text>
+        </g>
+
+        <path d="M285 128 H425" class="connector"></path>
+        <path d="M540 185 V260" class="connector"></path>
+        <path d="M655 328 H775" class="connector"></path>
+        <path d="M540 395 V455" class="connector"></path>
+        <path d="M425 350 C350 350 300 360 260 365" class="connector"></path>
+
+        <g>
+          <rect x="318" y="102" width="44" height="22" class="label-bg"></rect>
+          <text x="340" y="117" text-anchor="middle" class="edge-label">HTTP</text>
+        </g>
+        <g>
+          <rect x="498" y="212" width="84" height="22" class="label-bg"></rect>
+          <text x="540" y="227" text-anchor="middle" class="edge-label">delegates</text>
+        </g>
+        <g>
+          <rect x="677" y="302" width="72" height="22" class="label-bg"></rect>
+          <text x="713" y="317" text-anchor="middle" class="edge-label">uses</text>
+        </g>
+        <g>
+          <rect x="500" y="420" width="80" height="22" class="label-bg"></rect>
+          <text x="540" y="435" text-anchor="middle" class="edge-label">persists</text>
+        </g>
+      </svg>
+      <p class="caption">Diagrama propositalmente simples: a dependencia central do service mostra o acoplamento que sera comparado com a versao engineered.</p>
+    </section>
+  </main>
+</body>
+</html>

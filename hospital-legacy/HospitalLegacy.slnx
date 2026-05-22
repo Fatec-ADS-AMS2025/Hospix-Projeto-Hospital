@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/backend/">
+    <Project Path="backend/HospitalLegacy.Api/HospitalLegacy.Api.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/HospitalLegacy.Api.Tests/HospitalLegacy.Api.Tests.csproj" />
+  </Folder>
+</Solution>

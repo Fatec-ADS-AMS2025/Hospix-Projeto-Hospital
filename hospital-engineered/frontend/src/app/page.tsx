@@ -1,5 +1,5 @@
-import { HospitalDashboard } from "@/features/dashboard/HospitalDashboard";
+import { HospitalApp } from "@/features/hospital/HospitalApp";
 
 export default function Home() {
-  return <HospitalDashboard />;
+  return <HospitalApp />;
 }

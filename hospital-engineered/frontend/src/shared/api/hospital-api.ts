@@ -15,6 +15,38 @@ import type {
 
 const API = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:5101/api";
 
+function isObject(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null;
+}
+
+async function readErrorMessage(response: Response): Promise<string> {
+  const body = await response.text();
+  if (!body) {
+    return "Falha na API.";
+  }
+
+  try {
+    const parsed: unknown = JSON.parse(body);
+    if (isObject(parsed)) {
+      if (typeof parsed.error === "string") {
+        return parsed.error;
+      }
+
+      if (typeof parsed.detail === "string") {
+        return parsed.detail;
+      }
+
+      if (typeof parsed.title === "string") {
+        return parsed.title;
+      }
+    }
+  } catch {
+    return body;
+  }
+
+  return body;
+}
+
 async function request<T>(route: string, init?: RequestInit): Promise<T> {
   const response = await fetch(`${API}${route}`, {
     ...init,
@@ -25,8 +57,7 @@ async function request<T>(route: string, init?: RequestInit): Promise<T> {
   });
 
   if (!response.ok) {
-    const body = await response.text();
-    throw new Error(body || "Falha na API.");
+    throw new Error(await readErrorMessage(response));
   }
 
   return response.json() as Promise<T>;

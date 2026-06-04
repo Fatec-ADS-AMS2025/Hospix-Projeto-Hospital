@@ -1,6 +1,7 @@
 # Local verification artifacts
 .playwright-mcp/
 .runtime-logs/
+.codex-run-logs/
 playwright-report/
 test-results/
 /*.png

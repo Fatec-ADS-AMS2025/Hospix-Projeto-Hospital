@@ -42,6 +42,12 @@ URLs:
 
 - `docs/diagrama-arquitetura.html`
 - `docs/diagrama-classes.html`
+- `docs/diagrama-casos-uso.html`
+
+## Diagramas Markdown
+
+- `docs/diagrama-classes.md`
+- `docs/diagrama-casos-uso.md`
 
 ## Reset do banco
 

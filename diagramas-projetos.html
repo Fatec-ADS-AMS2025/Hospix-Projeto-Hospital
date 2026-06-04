@@ -117,6 +117,27 @@
       padding: 12px;
     }
 
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 0 12px 14px;
+    }
+
+    .links a {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 7px 9px;
+      text-decoration: none;
+    }
+
+    .links a:hover {
+      background: #f8fafc;
+    }
+
     svg {
       display: block;
       min-width: 560px;
@@ -252,6 +273,11 @@
             <path d="M200 288 C120 282 85 240 72 142" class="arrow" marker-end="url(#arrow)"></path>
           </svg>
         </div>
+        <div class="links" aria-label="Links para diagramas do hospital legacy">
+          <a href="hospital-legacy/docs/diagrama-arquitetura.html">Arquitetura</a>
+          <a href="hospital-legacy/docs/diagrama-classes.html">Classes</a>
+          <a href="hospital-legacy/docs/diagrama-casos-uso.html">Casos de uso</a>
+        </div>
       </article>
 
       <article class="project">
@@ -301,6 +327,11 @@
             <rect x="410" y="430" width="165" height="65" class="box engineered"></rect>
             <text x="430" y="468" class="label">BillingService</text>
           </svg>
+        </div>
+        <div class="links" aria-label="Links para diagramas do hospital engineered">
+          <a href="hospital-engineered/docs/diagrama-arquitetura.html">Arquitetura</a>
+          <a href="hospital-engineered/docs/diagrama-classes.html">Classes</a>
+          <a href="hospital-engineered/docs/diagrama-casos-uso.html">Casos de uso</a>
         </div>
       </article>
     </section>
